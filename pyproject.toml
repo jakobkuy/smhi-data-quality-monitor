@@ -1,0 +1,65 @@
+[project]
+name = "smhi-data-quality-monitor"
+version = "0.1.0"
+description = "Environmental sensor dashboard with data quality monitoring using SMHI APIs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Jakob Kuylenstierna", email = "jakob@example.com"}
+]
+keywords = ["smhi", "weather", "data-quality", "monitoring", "streamlit"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Repository = "https://github.com/jakobkuy/smhi-data-quality-monitor"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501", # line too long (handled by formatter)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+]
