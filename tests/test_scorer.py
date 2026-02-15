@@ -66,20 +66,23 @@ class TestCalculateQualityScore:
 
     def test_grade_boundaries(self) -> None:
         """Test grade boundary values."""
-        # A: >= 90
+        # A: >= 90 (100% everything = 100)
         assert calculate_quality_score(True, 100, 100, 0).grade == "A"
 
-        # B: 80-89
-        assert calculate_quality_score(True, 70, 100, 0).grade == "B"
+        # B: 80-89 (need to reduce score to 80-89 range)
+        # schema=20, completeness=50*0.3=15, range=100*0.25=25, anomaly=100*0.25=25 = 85
+        assert calculate_quality_score(True, 50, 100, 0).grade == "B"
 
         # C: 70-79
-        assert calculate_quality_score(True, 50, 100, 0).grade == "C"
+        # schema=20, completeness=30*0.3=9, range=100*0.25=25, anomaly=100*0.25=25 = 79
+        assert calculate_quality_score(True, 30, 100, 0).grade == "C"
 
         # D: 60-69
-        assert calculate_quality_score(True, 30, 100, 0).grade == "D"
+        # schema=0, completeness=100*0.3=30, range=100*0.25=25, anomaly=50*0.25=12.5 = 67.5
+        assert calculate_quality_score(False, 100, 100, 50).grade == "D"
 
         # F: < 60
-        assert calculate_quality_score(False, 30, 100, 0).grade == "F"
+        assert calculate_quality_score(False, 30, 50, 50).grade == "F"
 
     def test_recommendation_generated_for_issues(self) -> None:
         """Recommendations are generated for quality issues."""
