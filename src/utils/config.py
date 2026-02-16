@@ -29,11 +29,11 @@ PARAM_PRECIPITATION = 7    # Daily precipitation (mm)
 
 # Default meteorological stations (verified from SMHI API)
 DEFAULT_STATIONS_METOBS: list[Station] = [
-    Station(id=98210, name="Stockholm-Observatoriekullen"),
-    Station(id=71420, name="Göteborg A"),
-    Station(id=52350, name="Malmö A"),
-    Station(id=162880, name="Luleå flygplats"),
-    Station(id=134110, name="Östersund-Frösön"),
+    Station(id=98230, name="Stockholm"),
+    Station(id=71420, name="Göteborg"),
+    Station(id=52350, name="Malmö"),
+    Station(id=162860, name="Luleå"),
+    Station(id=134110, name="Östersund"),
 ]
 
 # Default hydrological stations
