@@ -115,7 +115,7 @@ def aggregate_station_scores(scores: list[QualityScore]) -> QualityScore:
     grade = _score_to_grade(overall)
 
     # Count stations by grade
-    grade_counts = {}
+    grade_counts: dict[str, int] = {}
     for s in scores:
         grade_counts[s.grade] = grade_counts.get(s.grade, 0) + 1
 
@@ -187,6 +187,6 @@ def _generate_system_recommendation(
             "investigate sensor issues"
         )
     elif overall >= 70:
-        return f"System health acceptable - minor issues at some stations"
+        return "System health acceptable - minor issues at some stations"
     else:
         return "System-wide data quality concerns - comprehensive review needed"

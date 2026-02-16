@@ -57,7 +57,7 @@ class MetObsClient(BaseClient):
             List of parameter metadata dicts
         """
         response = self.get(f"version/{API_VERSION}.json")
-        return response.get("resource", [])
+        return response.get("resource", [])  # type: ignore[no-any-return]
 
     def get_stations(self, parameter_id: int) -> list[StationInfo]:
         """Get stations that measure a specific parameter.

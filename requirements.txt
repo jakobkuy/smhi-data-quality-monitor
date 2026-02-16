@@ -18,6 +18,7 @@ responses>=0.24.0
 # Code Quality
 ruff>=0.1.0
 mypy>=1.7.0
+types-requests>=2.31.0
 
 # Logging
 structlog>=23.2.0

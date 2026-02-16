@@ -2,8 +2,6 @@
 
 from datetime import datetime, timedelta
 
-import pytest
-
 from src.validation.completeness import (
     analyze_completeness,
     calculate_completeness_score,

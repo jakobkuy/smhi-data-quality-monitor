@@ -1,6 +1,5 @@
 """Pydantic models for SMHI API response validation."""
 
-from datetime import datetime
 from enum import Enum
 
 from pydantic import BaseModel, Field, field_validator

@@ -1,6 +1,5 @@
 """Tests for range validation."""
 
-import pytest
 
 from src.validation.range_validator import (
     RangeSeverity,

@@ -3,7 +3,6 @@
 import pytest
 
 from src.quality.scorer import (
-    QualityScore,
     aggregate_station_scores,
     calculate_quality_score,
 )

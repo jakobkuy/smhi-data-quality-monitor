@@ -119,7 +119,7 @@ class BaseClient:
                     content_length=len(response.content),
                 )
 
-                return response.json()
+                return response.json()  # type: ignore[no-any-return]
 
             except requests.exceptions.Timeout as e:
                 last_exception = e
